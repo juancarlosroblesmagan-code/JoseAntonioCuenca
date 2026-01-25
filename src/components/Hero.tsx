@@ -8,10 +8,10 @@ const Hero = () => {
     >
       {/* Background Image with Parallax Effect */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
         <img
-          src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format&fit=crop"
-          alt="Luxury bedroom"
+          src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2057&auto=format&fit=crop"
+          alt="Modern luxury bedroom"
           className="w-full h-full object-cover scale-105"
           style={{ transform: 'translateZ(0)' }}
         />
@@ -45,11 +45,8 @@ const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] animate-fade-up">
-            Jose Antonio
-            <span className="block text-gradient mt-2" style={{ animationDelay: '100ms' }}>
-              Cuenca
-            </span>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight animate-fade-up">
+            <span className="text-gradient">Jose Antonio Cuenca</span>
           </h1>
 
           {/* Subtitle */}

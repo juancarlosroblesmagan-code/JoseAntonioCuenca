@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import logoBlanco from '../assets/images/JoseAntonioCuenca-logo--completo-blanco.png';
+import logoCirculo from '../assets/images/joseantoniocuenca-letra.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,14 +35,16 @@ const Header = () => {
           {/* Logo */}
           <a
             href="#hero"
-            className="flex items-center group relative"
+            className="flex items-center gap-3 group relative"
           >
             <img
-              src={logoBlanco}
-              alt="Jose Antonio Cuenca"
-              className="h-14 md:h-20 w-auto transition-all duration-300 group-hover:scale-105"
+              src={logoCirculo}
+              alt="Logo"
+              className="h-12 md:h-14 w-auto transition-all duration-300 group-hover:scale-105 group-hover:rotate-6"
             />
-            <div className="absolute inset-0 bg-gradient-shine opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="font-display text-xl md:text-2xl font-bold text-white uppercase tracking-wide group-hover:text-accent transition-colors duration-300">
+              Jose Antonio Cuenca
+            </span>
           </a>
 
           {/* Desktop Navigation */}
