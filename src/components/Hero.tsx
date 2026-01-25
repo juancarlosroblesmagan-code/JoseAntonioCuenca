@@ -10,10 +10,11 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
         <img
-          src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2057&auto=format&fit=crop"
-          alt="Modern luxury bedroom"
+          src="/dormitorio-lujo-moderno-sistemas-descanso-premium.jpg"
+          alt="Dormitorio de lujo moderno con sistemas de descanso premium - Jose Antonio Cuenca"
           className="w-full h-full object-cover scale-105"
           style={{ transform: 'translateZ(0)' }}
+          loading="eager"
         />
         {/* Animated overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-transparent opacity-50 animate-pulse" />
