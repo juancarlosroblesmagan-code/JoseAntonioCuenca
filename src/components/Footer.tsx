@@ -1,7 +1,16 @@
 import { Heart } from 'lucide-react';
+import facebookIcon from '../assets/images/joseantoniocuenca-facebook.png';
+import instagramIcon from '../assets/images/joseantoniocuenca-instagram.png';
+import whatsappIcon from '../assets/images/joseantoniocuenca-whatsapp.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const socialLinks = [
+    { name: 'Facebook', icon: facebookIcon, url: 'https://facebook.com' },
+    { name: 'Instagram', icon: instagramIcon, url: 'https://instagram.com' },
+    { name: 'WhatsApp', icon: whatsappIcon, url: 'https://wa.me/34XXXXXXXXX' },
+  ];
 
   const brands = [
     { name: 'TORRESOL', url: 'https://torresolpiel.com/' },
@@ -33,10 +42,30 @@ const Footer = () => {
               Desde 2002 vendiendo Calidad de Descanso. Distribuidor oficial de
               las mejores marcas de sistemas de descanso del mercado.
             </p>
-            <div className="flex items-center gap-2 text-sm">
+            <div className="flex items-center gap-2 text-sm mb-6">
               <span className="text-primary-foreground/80">Hecho con</span>
               <Heart size={16} className="text-accent fill-accent" />
               <span className="text-primary-foreground/80">para tu descanso</span>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex gap-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-primary-foreground/10 rounded-sm flex items-center justify-center hover:bg-accent transition-all duration-300 group"
+                  aria-label={social.name}
+                >
+                  <img
+                    src={social.icon}
+                    alt={social.name}
+                    className="w-6 h-6 opacity-80 group-hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              ))}
             </div>
           </div>
 

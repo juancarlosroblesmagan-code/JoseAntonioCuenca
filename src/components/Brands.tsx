@@ -1,34 +1,39 @@
 import { ExternalLink } from 'lucide-react';
+import torresolLogo from '../assets/images/joseantoniocuenca-torresol-logo.png';
+import koalaLogo from '../assets/images/joseantoniocuenca-koala-logo.png';
+import karibianLogo from '../assets/images/joseantoniocuenca-karibian-logo.png';
+import ivorimatexLogo from '../assets/images/joseantoniocuenca-ivorimatex-logo.png';
+import bsensibleLogo from '../assets/images/joseantoniocuenca-B-Sensible-logo.png';
 
 const brands = [
   {
     name: 'TORRESOL',
     url: 'https://torresolpiel.com/',
-    logo: 'https://torresolpiel.com/wp-content/uploads/2021/05/logo-torresol-piel.png',
+    logo: torresolLogo,
     description: 'Especialistas en pieles y tapicerías de alta calidad',
   },
   {
     name: 'KOALA',
     url: 'https://koalabeds.net/',
-    logo: 'https://koalabeds.net/cdn/shop/files/Koala_logo.png',
+    logo: koalaLogo,
     description: 'Innovación en descanso y confort',
   },
   {
     name: 'KARIBIAN',
     url: 'https://karibiandescanso.com/',
-    logo: 'https://karibiandescanso.com/wp-content/uploads/2023/01/logo-karibian.png',
+    logo: karibianLogo,
     description: 'Sistemas de descanso premium',
   },
   {
     name: 'IVORIMATEX',
     url: 'https://ivorimatex.com/',
-    logo: 'https://ivorimatex.com/wp-content/uploads/2022/03/logo-ivorimatex.png',
+    logo: ivorimatexLogo,
     description: 'Textiles de máxima calidad para el descanso',
   },
   {
     name: 'B-SENSIBLE',
     url: 'https://bsensible.com/es/',
-    logo: 'https://bsensible.com/wp-content/uploads/2021/01/logo-b-sensible.png',
+    logo: bsensibleLogo,
     description: 'Soluciones inteligentes para tu descanso',
   },
 ];
