@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
         <img
-          src="/joseantoniocuenca-portada.webp"
+          src="/joseantoniocuenca-portada1.webp"
           alt="Dormitorio elegante con sistemas de descanso premium - Jose Antonio Cuenca distribuidor oficial"
           className="w-full h-full object-cover scale-105"
           style={{ transform: 'translateZ(0)' }}
@@ -46,8 +46,11 @@ const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight animate-fade-up">
-            <span className="text-gradient">Jose Antonio Cuenca</span>
+          <h1
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight animate-fade-up"
+            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.3)' }}
+          >
+            Jose Antonio Cuenca
           </h1>
 
           {/* Subtitle */}
