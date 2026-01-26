@@ -10,8 +10,8 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
         <img
-          src="/dormitorio-lujo-moderno-sistemas-descanso-premium.jpg"
-          alt="Dormitorio de lujo moderno con sistemas de descanso premium - Jose Antonio Cuenca"
+          src="/joseantoniocuenca-portada.webp"
+          alt="Dormitorio elegante con sistemas de descanso premium - Jose Antonio Cuenca distribuidor oficial"
           className="w-full h-full object-cover scale-105"
           style={{ transform: 'translateZ(0)' }}
           loading="eager"
