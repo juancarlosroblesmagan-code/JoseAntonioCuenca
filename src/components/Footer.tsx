@@ -1,4 +1,5 @@
 import { Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import facebookIcon from '../assets/images/joseantoniocuenca-facebook.png';
 import instagramIcon from '../assets/images/joseantoniocuenca-instagram.png';
 import whatsappIcon from '../assets/images/joseantoniocuenca-whatsapp.png';
@@ -9,7 +10,7 @@ const Footer = () => {
   const socialLinks = [
     { name: 'Facebook', icon: facebookIcon, url: 'https://facebook.com' },
     { name: 'Instagram', icon: instagramIcon, url: 'https://instagram.com' },
-    { name: 'WhatsApp', icon: whatsappIcon, url: 'https://wa.me/34XXXXXXXXX' },
+    { name: 'WhatsApp', icon: whatsappIcon, url: 'https://wa.me/34615559577' },
   ];
 
   const brands = [
@@ -21,19 +22,17 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { label: 'Inicio', href: '#hero' },
-    { label: 'Sobre Nosotros', href: '#about' },
-    { label: 'Nuestras Marcas', href: '#brands' },
-    { label: 'Productos', href: '#products' },
-    { label: 'Promociones', href: '#promotions' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Contacto', href: '#contact' },
+    { label: 'Inicio', href: '/' },
+    { label: 'Sobre Nosotros', href: '/sobre-nosotros' },
+    { label: 'Nuestras Firmas', href: '/nuestras-firmas' },
+    { label: 'Productos', href: '/productos' },
+    { label: 'FAQ', href: '/preguntas-frecuentes' },
+    { label: 'Contacto', href: '/contacto' },
   ];
 
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
@@ -49,8 +48,6 @@ const Footer = () => {
               <Heart size={16} className="text-accent fill-accent" />
               <span className="text-primary-foreground/80">para tu descanso</span>
             </div>
-
-            {/* Social Media Links */}
             <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a
@@ -61,11 +58,7 @@ const Footer = () => {
                   className="w-10 h-10 bg-primary-foreground/10 rounded-sm flex items-center justify-center hover:bg-accent transition-all duration-300 group"
                   aria-label={social.name}
                 >
-                  <img
-                    src={social.icon}
-                    alt={social.name}
-                    className="w-6 h-6 opacity-80 group-hover:opacity-100 transition-opacity"
-                  />
+                  <img src={social.icon} alt={social.name} className="w-6 h-6 opacity-80 group-hover:opacity-100 transition-opacity" />
                 </a>
               ))}
             </div>
@@ -73,18 +66,16 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display text-lg font-semibold mb-4">
-              Enlaces Rápidos
-            </h4>
+            <h4 className="font-display text-lg font-semibold mb-4">Enlaces Rápidos</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="font-body text-sm text-primary-foreground/80 hover:text-accent transition-colors inline-block"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -92,9 +83,7 @@ const Footer = () => {
 
           {/* Brands */}
           <div>
-            <h4 className="font-display text-lg font-semibold mb-4">
-              Nuestras Marcas
-            </h4>
+            <h4 className="font-display text-lg font-semibold mb-4">Nuestras Firmas</h4>
             <ul className="space-y-2">
               {brands.map((brand) => (
                 <li key={brand.name}>
@@ -112,28 +101,14 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="border-t border-primary-foreground/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            {/* Copyright */}
             <p className="font-body text-sm text-primary-foreground/60 text-center md:text-left">
               © {currentYear} Jose Antonio Cuenca. Todos los derechos reservados.
             </p>
-
-            {/* Legal Links */}
             <div className="flex gap-6">
-              <a
-                href="#"
-                className="font-body text-sm text-primary-foreground/60 hover:text-accent transition-colors"
-              >
-                Política de Privacidad
-              </a>
-              <a
-                href="#"
-                className="font-body text-sm text-primary-foreground/60 hover:text-accent transition-colors"
-              >
-                Términos y Condiciones
-              </a>
+              <a href="#" className="font-body text-sm text-primary-foreground/60 hover:text-accent transition-colors">Política de Privacidad</a>
+              <a href="#" className="font-body text-sm text-primary-foreground/60 hover:text-accent transition-colors">Términos y Condiciones</a>
             </div>
           </div>
         </div>

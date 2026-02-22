@@ -1,62 +1,70 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import logoCirculo from '../assets/images/joseantoniocuenca-letra.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Cierra el menú móvil y sube al top al cambiar de ruta
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const navItems = [
-    { label: 'Inicio', href: '#hero' },
-    { label: 'Sobre Nosotros', href: '#about' },
-    { label: 'Marcas', href: '#brands' },
-    { label: 'Productos', href: '#products' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Contacto', href: '#contact' },
+    { label: 'Inicio', href: '/' },
+    { label: 'Sobre Nosotros', href: '/sobre-nosotros' },
+    { label: 'Nuestras Firmas', href: '/nuestras-firmas' },
+    { label: 'Productos', href: '/productos' },
+    { label: 'FAQ', href: '/preguntas-frecuentes' },
+    { label: 'Contacto', href: '/contacto' },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'glass-dark shadow-glass'
-          : 'bg-transparent'
+        isScrolled ? 'glass-dark shadow-glass' : 'bg-transparent'
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <a
-            href="#hero"
-            className="flex items-center group relative"
-          >
+          <Link to="/" className="flex items-center group relative">
             <img
               src={logoCirculo}
-              alt="Jose Antonio Cuenca - Distribuidor de Sistemas de Descanso"
+              alt="Jose Antonio Cuenca - Representante Colchones y Sistemas de Descanso"
               className="h-14 md:h-16 w-auto transition-all duration-300 group-hover:scale-105 brightness-0 invert"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center gap-10">
+          <ul className="hidden lg:flex items-center gap-8">
             {navItems.map((item, index) => (
               <li key={item.label} style={{ animationDelay: `${index * 50}ms` }}>
-                <a
-                  href={item.href}
-                  className="font-body text-sm font-medium text-white/90 hover:text-white transition-all duration-300 relative group py-2"
+                <Link
+                  to={item.href}
+                  className={`font-body text-sm font-medium transition-all duration-300 relative group py-2 ${
+                    location.pathname === item.href
+                      ? 'text-white'
+                      : 'text-white/90 hover:text-white'
+                  }`}
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white/20 blur-sm transition-all duration-300 group-hover:w-full" />
-                </a>
+                  <span
+                    className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                      location.pathname === item.href ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                  />
+                </Link>
               </li>
             ))}
           </ul>
@@ -82,13 +90,16 @@ const Header = () => {
                   className="animate-slide-in-left"
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <a
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block font-body text-base font-medium text-white/90 hover:text-white transition-all duration-300 py-3 px-4 rounded-lg hover:bg-white/5"
+                  <Link
+                    to={item.href}
+                    className={`block font-body text-base font-medium transition-all duration-300 py-3 px-4 rounded-lg ${
+                      location.pathname === item.href
+                        ? 'text-white bg-white/10'
+                        : 'text-white/90 hover:text-white hover:bg-white/5'
+                    }`}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
