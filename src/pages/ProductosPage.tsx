@@ -1,56 +1,56 @@
-import { BookOpen } from 'lucide-react';
+import { BookOpen, ArrowRight } from 'lucide-react';
 import karibianLogo from '../assets/images/joseantoniocuenca-karibian-logo.png';
 import koalaLogo from '../assets/images/joseantoniocuenca-koala-logo.png';
 import torresolLogo from '../assets/images/joseantoniocuenca-torresol-logo.png';
 import ivorimatexLogo from '../assets/images/joseantoniocuenca-ivorimatex-logo.png';
 import bsensibleLogo from '../assets/images/joseantoniocuenca-B-Sensible-logo.png';
 
-// URLs de catálogos - verificar y actualizar con las páginas exactas de cada marca
+// NOTA: Actualizar URLs con las páginas exactas de catálogo de cada marca
 const brands = [
   {
     name: 'KARIBIAN',
-    /* H2 keyword: colchones alta gama muelles ensacados catalogo */
-    h2: 'Colchones de Alta Gama Karibian – Muelles Ensacados y Viscoelástica',
+    h2: 'Colchones de Alta Gama Karibian',
+    subtitle: 'Muelles ensacados y viscoelástica de alta densidad',
     catalogUrl: 'https://karibiandescanso.com/colchones/',
     logo: karibianLogo,
-    description: 'Ver catálogo',
-    gradient: 'from-purple-500/10 to-pink-500/10',
+    gradient: 'from-purple-500/15 to-pink-500/5',
+    logoScale: false,
   },
   {
     name: 'KOALA BEDS',
-    /* H2 keyword: canapes abatibles premium catalogo koala */
-    h2: 'Canapés Abatibles Premium Koala Beds – Bases Tapizadas de Alta Calidad',
+    h2: 'Canapés Abatibles Premium Koala Beds',
+    subtitle: 'Bases tapizadas con pistones de gas y estructura reforzada',
     catalogUrl: 'https://koalabeds.net/canapes/',
     logo: koalaLogo,
-    description: 'Ver catálogo',
-    gradient: 'from-blue-500/10 to-cyan-500/10',
+    gradient: 'from-blue-500/15 to-cyan-500/5',
+    logoScale: false,
   },
   {
     name: 'TORRESOL',
-    /* H2 keyword: sofas piel diseño exclusivo torresol */
-    h2: 'Sofás de Piel Torresol – Maestros del Confort y el Diseño Exclusivo',
+    h2: 'Sofás de Piel Torresol',
+    subtitle: 'Maestros del confort. Líderes en diseño de sofás de máxima calidad',
     catalogUrl: 'https://torresolpiel.com/sofas/',
     logo: torresolLogo,
-    description: 'Maestros del confort. Líderes en diseño de sofás de máxima calidad',
-    gradient: 'from-orange-500/10 to-amber-500/10',
+    gradient: 'from-orange-500/15 to-amber-500/5',
+    logoScale: true, // logo pequeño, ampliar
   },
   {
     name: 'IVORIMATEX',
-    /* H2 keyword: almohadas cervicales catalogo ivorimatex */
-    h2: 'Almohadas Cervicales Ivorimatex – La Mayor Colección del Sector',
+    h2: 'Almohadas Cervicales Ivorimatex',
+    subtitle: 'La mayor colección de almohadas ergonómicas del sector',
     catalogUrl: 'https://ivorimatex.com/almohadas/',
     logo: ivorimatexLogo,
-    description: 'Almohadas de calidad. La mayor colección de productos disponible en el sector.',
-    gradient: 'from-green-500/10 to-emerald-500/10',
+    gradient: 'from-green-500/15 to-emerald-500/5',
+    logoScale: false,
   },
   {
-    name: 'BSENSIBLE',
-    /* H2 keyword: ropa cama inteligente protectores bsensible */
-    h2: 'Ropa de Cama B-Sensible – Protectores Inteligentes para tu Descanso y tu Salud',
+    name: 'B-SENSIBLE',
+    h2: 'Ropa de Cama B-Sensible',
+    subtitle: 'Protectores inteligentes que cuidan tu descanso y tu salud',
     catalogUrl: 'https://bsensible.com/es/collections/',
     logo: bsensibleLogo,
-    description: 'Ropa de cama que protege tu descanso y tu salud',
-    gradient: 'from-indigo-500/10 to-violet-500/10',
+    gradient: 'from-indigo-500/15 to-violet-500/5',
+    logoScale: false,
   },
 ];
 
@@ -61,84 +61,101 @@ const otherProducts = [
 
 const ProductosPage = () => {
   return (
-    <main>
-      {/* Hero banner */}
-      <section className="pt-32 pb-16 bg-primary text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* H1 - Keyword principal: catalogo colchones canapes sofas almohadas */}
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-black mb-6">
-            Catálogo de Colchones, Canapés Abatibles, Sofás y Almohadas Premium
+    <main className="overflow-hidden">
+
+      {/* HERO */}
+      <section className="relative min-h-[55vh] flex items-center justify-center">
+        <div className="absolute inset-0 bg-primary" />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/25 via-transparent to-black/50" />
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-white/5 blur-2xl" />
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
+          <div className="inline-flex items-center gap-2 glass px-5 py-2 rounded-full text-white/80 text-sm font-medium mb-8">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            Productos seleccionados de las mejores firmas
+          </div>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
+            Lo Mejor de <span className="text-gradient">Cada Firma</span>
           </h1>
-          {/* H2 - Keyword: productos sistemas descanso alta gama */}
-          <h2 className="font-display text-xl md:text-2xl font-light text-white/80 max-w-3xl mx-auto">
-            Lo mejor de cada firma: productos de sistemas de descanso de alta gama seleccionados para maximizar la calidad de vida de tus clientes
+          <h2 className="font-body text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+            Catálogo completo de colchones, canapés abatibles, sofás de piel, almohadas cervicales y ropa de cama premium
           </h2>
         </div>
       </section>
 
-      {/* Catálogos por marca */}
-      <section className="py-20 bg-background">
+      {/* BRANDS GRID */}
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {brands.map((brand, index) => (
-              <div
+              <a
                 key={brand.name}
-                className="group relative bg-card rounded-3xl p-8 shadow-glass hover:shadow-elevated transition-all duration-500 hover-lift overflow-hidden"
+                href={brand.catalogUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative bg-card rounded-3xl overflow-hidden shadow-glass hover:shadow-elevated transition-all duration-500 hover-lift animate-scale-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
+                {/* Gradient overlay on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${brand.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                <div className="relative z-10">
-                  {/* Logo */}
-                  <div className="w-full h-40 flex items-center justify-center mb-6 p-6 rounded-2xl bg-background/50 backdrop-blur-sm group-hover:bg-white transition-colors duration-300">
-                    <img
-                      src={brand.logo}
-                      alt={`${brand.name} catálogo productos`}
-                      className="max-w-full max-h-full object-contain filter grayscale-[30%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  {/* H2 por marca */}
-                  <h2 className="font-display text-lg font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300">
+
+                {/* Logo area */}
+                <div className="relative h-52 flex items-center justify-center bg-white/80 border-b border-border/30 overflow-hidden p-8">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-muted/20" />
+                  <img
+                    src={brand.logo}
+                    alt={`${brand.name} catálogo`}
+                    className={`relative z-10 object-contain transition-all duration-500 group-hover:scale-110 ${
+                      brand.logoScale
+                        ? 'h-16 w-auto max-w-[260px]'
+                        : 'max-h-28 max-w-[240px] w-auto'
+                    }`}
+                    style={brand.logoScale ? { transform: 'scale(1.4)' } : {}}
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 p-7">
+                  <h2 className="font-display text-lg font-black text-primary mb-2 group-hover:text-accent transition-colors duration-300 leading-tight">
                     {brand.h2}
                   </h2>
-                  <p className="font-body text-sm text-muted-foreground mb-6 leading-relaxed">
-                    {brand.description}
+                  <p className="font-body text-sm text-muted-foreground mb-5 leading-relaxed">
+                    {brand.subtitle}
                   </p>
-                  <a
-                    href={brand.catalogUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-accent font-medium text-sm group-hover:gap-3 transition-all duration-300"
-                  >
-                    <BookOpen size={16} />
+                  <div className="flex items-center gap-2 text-accent font-semibold text-sm group-hover:gap-3 transition-all duration-300">
+                    <BookOpen size={15} />
                     <span>Ver catálogo</span>
-                  </a>
+                    <ArrowRight size={14} className="ml-auto group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
                 </div>
-              </div>
+              </a>
             ))}
-          </div>
-
-          {/* Otros Productos Relacionados */}
-          <div className="mt-20">
-            {/* H3 - otros productos relacionados */}
-            <h3 className="font-display text-xl font-semibold text-muted-foreground mb-6 text-center">
-              Otros Productos Relacionados
-            </h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              {otherProducts.map((product) => (
-                <a
-                  key={product.name}
-                  href={product.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-body text-sm text-muted-foreground/70 hover:text-accent transition-colors duration-300 px-4 py-2 border border-border/40 rounded-lg hover:border-accent/40"
-                >
-                  {product.name}
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       </section>
+
+      {/* OTROS PRODUCTOS — sección discreta */}
+      <section className="py-12 bg-muted/20 border-t border-border/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="font-body text-xs uppercase tracking-widest text-muted-foreground/60 text-center mb-4">
+            Otros productos relacionados
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {otherProducts.map((p) => (
+              <a
+                key={p.name}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors duration-300 px-4 py-2 border border-border/30 rounded-lg hover:border-border"
+              >
+                {p.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 };

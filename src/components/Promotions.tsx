@@ -6,7 +6,7 @@ import { Tag } from 'lucide-react';
 // gestionar las promociones mensuales/trimestrales.
 // Cuando no haya promociones activas, deja el array vacío: []
 // =====================================================
-const promotions = [
+const promotions: { id: number; brand: string; title: string; description: string; validUntil: string; badge: string }[] = [
   // Ejemplo de promoción. Eliminar o reemplazar con las actuales:
   // {
   //   id: 1,

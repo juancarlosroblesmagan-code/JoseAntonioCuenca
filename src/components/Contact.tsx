@@ -156,7 +156,7 @@ const Contact = () => {
                 Información de Contacto
               </h3>
 
-              {contactInfo.map((info, index) => (
+              {contactInfo.map((info) => (
                 <a
                   key={info.title}
                   href={info.href}
