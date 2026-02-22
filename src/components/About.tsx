@@ -1,4 +1,4 @@
-import { Award, Users, Heart, TrendingUp } from 'lucide-react';
+import { Award, Users, Heart } from 'lucide-react';
 
 const About = () => {
   const features = [
@@ -17,11 +17,6 @@ const About = () => {
       title: 'Compromiso con la Calidad',
       description: 'Solo trabajamos con las mejores marcas y productos del mercado',
     },
-    {
-      icon: TrendingUp,
-      title: 'Crecimiento Continuo',
-      description: 'Innovando constantemente para ofrecer las últimas tendencias',
-    },
   ];
 
   return (
@@ -32,9 +27,13 @@ const About = () => {
           <div className="relative animate-fade-up">
             <div className="relative rounded-sm overflow-hidden shadow-elevated">
               <img
-                src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=2071&auto=format&fit=crop"
-                alt="Luxury bedroom interior"
+                src="/joseantoniocuenca-sobre-nosotros.webp"
+                alt="Jose Antonio Cuenca - Sobre Nosotros"
                 className="w-full h-[500px] md:h-[600px] object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src =
+                    'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=2071&auto=format&fit=crop';
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
             </div>
@@ -59,19 +58,18 @@ const About = () => {
               <div className="space-y-4 font-body text-lg text-muted-foreground">
                 <p>
                   Desde 2002, Jose Antonio Cuenca se ha consolidado como
-                  referente en la distribución de sistemas de descanso de alta
-                  calidad. Nuestra pasión es ayudarte a encontrar el descanso
-                  perfecto.
+                  referente en la representación de sistemas de descanso de alta
+                  calidad.
                 </p>
                 <p>
                   Trabajamos únicamente con las mejores marcas del sector,
-                  garantizando productos de máxima calidad que transformarán tus
-                  noches y mejorarán tu calidad de vida.
+                  garantizando productos de alta calidad que maximizarán el
+                  confort del cliente y su calidad de vida.
                 </p>
                 <p>
                   Nuestro compromiso es ofrecer un servicio personalizado,
                   escuchando tus necesidades y asesorándote profesionalmente
-                  para que encuentres el sistema de descanso ideal para ti.
+                  para que encuentres el sistema de descanso ideal.
                 </p>
               </div>
             </div>

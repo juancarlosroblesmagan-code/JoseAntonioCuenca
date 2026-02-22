@@ -9,12 +9,17 @@ const Hero = () => {
       {/* Background Image with Parallax Effect */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+        {/* NOTA: Reemplazar por imagen del stand de feria de Karibian.
+            Añadir el archivo de imagen al directorio /public con el nombre karibian-stand-feria.webp */}
         <img
-          src="/joseantoniocuenca-portada1.webp"
-          alt="Dormitorio elegante con sistemas de descanso premium - Jose Antonio Cuenca distribuidor oficial"
+          src="/karibian-stand-feria.webp"
+          alt="Stand de feria Karibian - Jose Antonio Cuenca representante oficial"
           className="w-full h-full object-cover scale-105"
           style={{ transform: 'translateZ(0)' }}
           loading="eager"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = '/joseantoniocuenca-portada1.webp';
+          }}
         />
         {/* Animated overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-transparent opacity-50 animate-pulse" />
@@ -58,7 +63,7 @@ const Hero = () => {
             className="font-display text-2xl sm:text-3xl md:text-4xl text-white/90 font-light tracking-wide animate-fade-up"
             style={{ animationDelay: '200ms' }}
           >
-            Distribuidor de Sistemas de Descanso
+            Representamos a las mejores marcas del sector
           </p>
 
           {/* Description */}
@@ -66,7 +71,7 @@ const Hero = () => {
             className="font-body text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed animate-fade-up"
             style={{ animationDelay: '300ms' }}
           >
-            Transformamos tu descanso en una experiencia única con las mejores marcas del sector
+            Transformamos el descanso en una experiencia única con los mejores productos del mercado
           </p>
 
           {/* CTA Buttons */}
@@ -91,14 +96,13 @@ const Hero = () => {
 
           {/* Stats */}
           <div
-            className="grid grid-cols-3 gap-6 max-w-3xl mx-auto pt-12 animate-fade-up"
+            className="grid grid-cols-2 gap-6 max-w-2xl mx-auto pt-12 animate-fade-up"
             style={{ animationDelay: '500ms' }}
           >
             {[
-              { number: '20+', label: 'Años de experiencia' },
-              { number: '5', label: 'Marcas premium' },
-              { number: '100%', label: 'Satisfacción' },
-            ].map((stat, index) => (
+              { number: '5', label: 'Marcas premium. Representación exclusiva' },
+              { number: '100%', label: 'Satisfacción. Clientes que recomiendan nuestros productos' },
+            ].map((stat) => (
               <div
                 key={stat.label}
                 className="glass-dark p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 hover-lift"

@@ -1,44 +1,46 @@
-import { ExternalLink, Sparkles, Award } from 'lucide-react';
-import torresolLogo from '../assets/images/joseantoniocuenca-torresol-logo.png';
-import koalaLogo from '../assets/images/joseantoniocuenca-koala-logo.png';
+import { BookOpen } from 'lucide-react';
 import karibianLogo from '../assets/images/joseantoniocuenca-karibian-logo.png';
+import koalaLogo from '../assets/images/joseantoniocuenca-koala-logo.png';
+import torresolLogo from '../assets/images/joseantoniocuenca-torresol-logo.png';
 import ivorimatexLogo from '../assets/images/joseantoniocuenca-ivorimatex-logo.png';
 import bsensibleLogo from '../assets/images/joseantoniocuenca-B-Sensible-logo.png';
 
+// URLs de presentación de empresa de cada marca
+// NOTA: Verificar que las URLs sean correctas con las secciones de presentación de cada web
 const brands = [
   {
-    name: 'TORRESOL',
-    url: 'https://torresolpiel.com/',
-    logo: torresolLogo,
-    description: 'Especialistas en pieles y tapicerías de alta calidad',
-    gradient: 'from-orange-500/10 to-amber-500/10',
-  },
-  {
-    name: 'KOALA',
-    url: 'https://koalabeds.net/',
-    logo: koalaLogo,
-    description: 'Innovación en descanso y confort',
-    gradient: 'from-blue-500/10 to-cyan-500/10',
-  },
-  {
     name: 'KARIBIAN',
-    url: 'https://karibiandescanso.com/',
+    presentationUrl: 'https://karibiandescanso.com/',
     logo: karibianLogo,
-    description: 'Sistemas de descanso premium',
+    description: 'Ver catalogo',
     gradient: 'from-purple-500/10 to-pink-500/10',
   },
   {
+    name: 'KOALA BEDS',
+    presentationUrl: 'https://koalabeds.net/',
+    logo: koalaLogo,
+    description: 'Ver catalogo',
+    gradient: 'from-blue-500/10 to-cyan-500/10',
+  },
+  {
+    name: 'TORRESOL',
+    presentationUrl: 'https://torresolpiel.com/',
+    logo: torresolLogo,
+    description: 'Maestros del confort. Líderes en diseño de sofás de máxima calidad',
+    gradient: 'from-orange-500/10 to-amber-500/10',
+  },
+  {
     name: 'IVORIMATEX',
-    url: 'https://ivorimatex.com/',
+    presentationUrl: 'https://ivorimatex.com/',
     logo: ivorimatexLogo,
-    description: 'Textiles de máxima calidad para el descanso',
+    description: 'Almohadas de calidad. La mayor colección de productos disponible en el sector.',
     gradient: 'from-green-500/10 to-emerald-500/10',
   },
   {
-    name: 'B-SENSIBLE',
-    url: 'https://bsensible.com/es/',
+    name: 'BSENSIBLE',
+    presentationUrl: 'https://bsensible.com/es/',
     logo: bsensibleLogo,
-    description: 'Soluciones inteligentes para tu descanso',
+    description: 'Ropa de cama que protege tu descanso y tu salud',
     gradient: 'from-indigo-500/10 to-violet-500/10',
   },
 ];
@@ -52,17 +54,14 @@ const Brands = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-up">
-          <div className="inline-flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full text-accent text-sm font-medium mb-6">
-            <Sparkles size={14} />
-            <span>Marcas de confianza</span>
-          </div>
-
           <h2 className="font-display text-4xl md:text-5xl lg:text-7xl font-black text-primary mb-6">
             Nuestras <span className="text-gradient">Marcas</span>
           </h2>
           <p className="font-body text-lg md:text-xl text-muted-foreground leading-relaxed">
             Trabajamos con las mejores marcas del sector para ofrecerte
-            productos de máxima calidad y garantía
+            productos de máxima calidad y garantía. Todas ellas, posicionadas
+            en los mercados internacionales más exigentes, llegando a
+            comercializar sus productos en más de 40 países.
           </p>
         </div>
 
@@ -71,7 +70,7 @@ const Brands = () => {
           {brands.map((brand, index) => (
             <a
               key={brand.name}
-              href={brand.url}
+              href={brand.presentationUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative bg-card rounded-3xl p-8 shadow-glass hover:shadow-elevated transition-all duration-500 hover-lift overflow-hidden animate-scale-in"
@@ -103,8 +102,8 @@ const Brands = () => {
 
                 {/* Link Indicator */}
                 <div className="flex items-center gap-2 text-accent font-medium text-sm group-hover:gap-3 transition-all duration-300">
-                  <span>Visitar sitio web</span>
-                  <ExternalLink size={16} className="group-hover:rotate-45 transition-transform duration-300" />
+                  <BookOpen size={16} />
+                  <span>Ver catálogo</span>
                 </div>
               </div>
 
@@ -112,19 +111,6 @@ const Brands = () => {
               <div className="absolute inset-0 bg-gradient-shine opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             </a>
           ))}
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-20 text-center animate-fade-up" style={{ animationDelay: '600ms' }}>
-          <div className="inline-flex flex-col items-center gap-4 glass p-8 rounded-3xl max-w-2xl mx-auto">
-            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-              <Award size={32} className="text-accent" />
-            </div>
-            <p className="font-body text-base text-foreground/80 leading-relaxed">
-              Como distribuidor oficial, garantizamos la autenticidad de todos
-              nuestros productos y el mejor servicio postventa
-            </p>
-          </div>
         </div>
       </div>
     </section>

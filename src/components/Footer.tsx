@@ -13,9 +13,9 @@ const Footer = () => {
   ];
 
   const brands = [
-    { name: 'TORRESOL', url: 'https://torresolpiel.com/' },
-    { name: 'KOALA', url: 'https://koalabeds.net/' },
     { name: 'KARIBIAN', url: 'https://karibiandescanso.com/' },
+    { name: 'KOALA', url: 'https://koalabeds.net/' },
+    { name: 'TORRESOL', url: 'https://torresolpiel.com/' },
     { name: 'IVORIMATEX', url: 'https://ivorimatex.com/' },
     { name: 'B-SENSIBLE', url: 'https://bsensible.com/es/' },
   ];
@@ -25,6 +25,8 @@ const Footer = () => {
     { label: 'Sobre Nosotros', href: '#about' },
     { label: 'Nuestras Marcas', href: '#brands' },
     { label: 'Productos', href: '#products' },
+    { label: 'Promociones', href: '#promotions' },
+    { label: 'FAQ', href: '#faq' },
     { label: 'Contacto', href: '#contact' },
   ];
 
@@ -39,7 +41,7 @@ const Footer = () => {
               Jose Antonio Cuenca
             </h3>
             <p className="font-body text-sm text-primary-foreground/80 mb-6 max-w-md">
-              Desde 2002 vendiendo Calidad de Descanso. Distribuidor oficial de
+              Desde 2002 vendiendo Calidad de Descanso. Colaborador oficial de
               las mejores marcas de sistemas de descanso del mercado.
             </p>
             <div className="flex items-center gap-2 text-sm mb-6">
