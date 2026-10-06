@@ -7,7 +7,7 @@ const chrome = await launch({ chromeFlags: ['--headless', '--disable-gpu'], ...(
 try {
   for (const mode of ['mobile', 'desktop']) {
     const config = { extends: 'lighthouse:default', settings: mode === 'desktop' ? { formFactor: 'desktop', screenEmulation: { mobile: false, width: 1440, height: 1000, deviceScaleFactor: 1, disabled: false }, throttling: { rttMs: 40, throughputKbps: 10240, cpuSlowdownMultiplier: 1, requestLatencyMs: 0, downloadThroughputKbps: 0, uploadThroughputKbps: 0 } } : {} };
-    const result = await lighthouse('http://localhost:4173', { port: chrome.port, output: ['html','json'], logLevel: 'error' }, config);
+    const result = await lighthouse(process.env.TEST_URL || 'http://localhost:4173', { port: chrome.port, output: ['html','json'], logLevel: 'error' }, config);
     await fs.writeFile(`reports/lighthouse-${mode}.html`, result.report[0]);
     await fs.writeFile(`reports/lighthouse-${mode}.json`, result.report[1]);
     const lhr = result.lhr;

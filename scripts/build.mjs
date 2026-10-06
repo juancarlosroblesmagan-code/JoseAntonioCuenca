@@ -2,23 +2,29 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import { renderSEO } from './seo.mjs';
+import { generateLegalPages } from './legal-pages.mjs';
 
 const out = 'dist';
+const site = process.env.SITE_URL || 'https://joseantoniocuenca.es';
 await fs.mkdir(out, { recursive: true });
-const html = renderSEO(await fs.readFile('index.html', 'utf8'), process.env.SITE_URL || '');
+await generateLegalPages();
+const html = renderSEO(await fs.readFile('index.html', 'utf8'), site);
 const sources = [...html.matchAll(/(?:src|href)="(\/[^"#]+)"/g)].map(m => m[1]);
 const srcsets = [...html.matchAll(/srcset="([^"]+)"/g)].flatMap(m => m[1].split(',').map(s => s.trim().split(' ')[0]));
 for (const src of new Set([...sources, ...srcsets])) {
   await fs.access(`.${src}`).catch(() => { throw new Error(`Missing asset: ${src}`); });
 }
 await fs.writeFile(`${out}/index.html`, html);
-for (const file of ['styles.css', 'modern.css', 'app.js']) await fs.copyFile(file, `${out}/${file}`);
+for (const file of ['styles.css', 'modern.css', 'legal.css', 'app.js', 'aviso-legal.html', 'privacidad.html', 'cookies.html', 'favicon.ico', 'robots.txt', 'llms.txt']) await fs.copyFile(file, `${out}/${file}`);
+await fs.writeFile(`${out}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${new URL('/', site).href}</loc><lastmod>2026-10-06</lastmod></url></urlset>`);
 for (const folder of ['images', 'logos', 'fonts']) {
   await fs.mkdir(`${out}/assets/${folder}`, { recursive: true });
   for (const file of await fs.readdir(`assets/${folder}`)) await fs.copyFile(`assets/${folder}/${file}`, `${out}/assets/${folder}/${file}`);
 }
 await fs.copyFile('assets/favicon.svg', `${out}/assets/favicon.svg`);
+for (const file of ['favicon-jc.svg', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png']) await fs.copyFile(`assets/${file}`, `${out}/assets/${file}`);
 await fs.copyFile('.htaccess', `${out}/.htaccess`);
+await fs.copyFile('.user.ini', `${out}/.user.ini`);
 await fs.cp('api', `${out}/api`, { recursive: true });
 const videos = JSON.parse(await fs.readFile('assets/videos/manifest.json', 'utf8'));
 await fs.mkdir(`${out}/assets/videos`, { recursive: true });
@@ -32,4 +38,4 @@ await sharp(socialOverlay).composite([{ input: backdrop, left: 650, top: 40 }]).
 await fs.copyFile('assets/images/social.jpg', `${out}/assets/images/social.jpg`);
 console.log('Build validado. HOME estática en dist/.');
 console.log('SEO: Person, WebSite, WebPage/FAQPage y Service. Tres vídeos a demanda.');
-console.log('Propuesta no indexable: pendientes contacto, legales y aprobación de contenidos/medios.');
+console.log('HOME indexable por autorización del titular. Legales y contacto verificado.');

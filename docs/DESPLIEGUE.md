@@ -18,10 +18,10 @@ Para recuperar: desde Plesk, copiar el backup a un directorio de recuperación y
 
 Contiene `index.html`, `styles.css`, `modern.css`, `app.js`, `.htaccess`, `assets/` y la API de contacto PHP con PHPMailer del build actual. Los ZIP de transferencia se retiraron del directorio público después de extraerlos. No se subieron informes, originales, dependencias Node ni herramientas de desarrollo.
 
-Se verificaron **63 archivos públicos** contra sus SHA256 locales: idénticos al build. También HTTPS, canonical del dominio, WebVTT `text/vtt`, MP4 `video/mp4` con rangos HTTP 206 y respuesta 404 a la ruta pública del backup.
+Tras incorporar favicon, documentos, seguridad y SEO se verificaron **75 archivos estáticos públicos** contra sus SHA256 locales: idénticos al build. También HTTPS, canonical del dominio, WebVTT `text/vtt`, MP4 `video/mp4` con rangos HTTP 206 y bloqueo de la ruta pública del backup. La API PHP se valida funcionalmente; no se descarga su código fuente.
 
 ## Estado editorial
 
-La web es accesible públicamente, pero conserva `noindex, nofollow`. El formulario está operativo con IONOS y el destinatario confirmado, sin resetear la contraseña; detalles en [CONTACTO.md](CONTACTO.md). Los legales completos siguen pendientes. No se debe anunciar el lanzamiento indexable hasta completar datos y permisos. El `noindex` no es una medida de privacidad ni impide visitar la web.
+La HOME es indexable por autorización expresa del titular. Las páginas legales completas mantienen `noindex, follow`. El formulario está operativo con IONOS y el destinatario confirmado, sin resetear la contraseña; detalles en [CONTACTO.md](CONTACTO.md). Se han incorporado teléfono, favicon JC, documentos legales, sitemap, robots, descripción para IA y cabeceras de seguridad. Un bloqueo de rastreo no sustituye controles de acceso.
 
 El árbol vigente de GitHub se sustituye por esta implementación mediante un commit normal, sin reescribir el historial anterior.

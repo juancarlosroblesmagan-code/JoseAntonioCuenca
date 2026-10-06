@@ -159,14 +159,3 @@ document.querySelectorAll('dialog').forEach(dialog => {
   dialog.querySelectorAll('.dialog-close, .dialog-dismiss').forEach(button => button.addEventListener('click', () => dialog.close()));
   dialog.addEventListener('click', e => { if (e.target === dialog) { const r = dialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close(); } });
 });
-const legal = {
-   legal: ['Información legal', 'Web de José Antonio Cuenca. Contacto: info@joseantoniocuenca.es. Pendiente de completar los datos fiscales y de identificación del titular para el aviso legal definitivo.'],
-   privacidad: ['Privacidad', 'El formulario recoge nombre, email, empresa opcional y consulta para que José Antonio Cuenca atienda tu solicitud, con tu autorización. Los datos se envían por email a través de IONOS. No se usan para campañas publicitarias desde este formulario. Para solicitar acceso, rectificación, supresión u otros derechos, escribe a info@joseantoniocuenca.es. La política completa, incluidos plazos de conservación y datos de identificación del responsable, sigue pendiente de confirmación.'],
-  cookies: ['Cookies', 'Esta propuesta no instala cookies ni utiliza almacenamiento local, analítica o reproductores externos. Las fuentes y las imágenes se sirven localmente. No es necesario un banner de consentimiento en esta fase.']
-};
-document.querySelectorAll('[data-legal]').forEach(button => button.addEventListener('click', () => {
-  const [title, copy] = legal[button.dataset.legal];
-  document.querySelector('#legal-dialog-title').textContent = title;
-  document.querySelector('#legal-dialog-copy').textContent = copy;
-  document.querySelector('#legal-dialog').showModal();
-}));

@@ -12,7 +12,7 @@ assert.ok(home['@type'].includes('FAQPage'));
 assert.equal(home.mainEntity.length, 5);
 assert.equal(home.mentions.length, 5);
 assert.equal(graph.find(entity => entity['@type'] === 'Service').provider['@id'], '/#jose-antonio');
-assert.match(html, /noindex, nofollow/);
+assert.match(html, /index, follow, max-image-preview:large/);
 const preview = renderSEO(await fs.readFile('index.html', 'utf8'), 'https://verified-example.invalid/');
 assert.match(preview, /rel="canonical" href="https:\/\/verified-example.invalid\/"/);
 assert.match(preview, /content="https:\/\/verified-example.invalid\/assets\/images\/social.jpg"/);

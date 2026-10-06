@@ -12,7 +12,7 @@ async function verify(directory) {
     if (entry.isDirectory()) { await verify(file); continue; }
     const relative = path.relative('dist', file).split(path.sep).join('/');
     if (relative.startsWith('api/')) continue; // PHP is executed, never downloaded as source.
-    if (relative === '.htaccess') continue;
+    if (relative.startsWith('.')) continue;
     const url = new URL(relative, `${base}/`);
     const response = await fetch(url, { cache: 'no-store' });
     assert.equal(response.status, 200, relative);
@@ -30,10 +30,10 @@ async function verify(directory) {
 }
 await verify('dist');
 const html = await (await fetch(`${base}/`)).text();
-assert.match(html, /noindex, nofollow/);
+assert.match(html, /index, follow, max-image-preview:large/);
 assert.ok(html.includes(`rel="canonical" href="${base}/"`));
 const archive = await fetch(`${base}/backup-web-20261006.zip`);
-assert.equal(archive.status, 404, 'backup must not be publicly exposed');
+assert.ok([403, 404].includes(archive.status), 'backup must not be publicly exposed');
 await fs.mkdir('reports', { recursive: true });
 await fs.writeFile('reports/deployment-verification.json', JSON.stringify({ base, verifiedAt: new Date().toISOString(), results }, null, 2));
-console.log(`${results.length} archivos publicados idénticos al build. HTTPS, canonical, noindex, WebVTT, rangos MP4 y backup no público OK.`);
+console.log(`${results.length} archivos publicados idénticos al build. HTTPS, canonical, indexación autorizada, WebVTT, rangos MP4 y backup no público OK.`);

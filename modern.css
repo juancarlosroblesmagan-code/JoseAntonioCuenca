@@ -75,6 +75,7 @@ h2 em { font-family: var(--serif); font-size: 1.08em; letter-spacing: -.04em; }
 .contact-arrow { transition: transform .7s cubic-bezier(.2,.7,.3,1); }
 .contact:hover .contact-arrow { transform: translate(10px, -10px); }
 .footer-bottom { flex-wrap: wrap; column-gap: 20px; row-gap: 10px; }
+.footer-bottom > div > a { display: inline-flex; align-items: center; min-height: 44px; font-size: 10px; }
 .footer-credits { margin: 0; text-align: center; color: var(--muted); font-size: 10px; line-height: 1.8; letter-spacing: .015em; }
 @media (min-width: 1201px) { .footer-bottom { flex-wrap: nowrap; } .footer-bottom > span, .footer-credits { white-space: nowrap; } .footer-bottom > div { gap: 18px; } }
 .footer-credits a { white-space: nowrap; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color .25s, text-decoration-color .25s; }

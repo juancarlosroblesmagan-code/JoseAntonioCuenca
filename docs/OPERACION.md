@@ -8,6 +8,9 @@
 - `assets/`: medios finales, fuentes, licencias y procedencia.
 - `scripts/`: desarrollo, build, generación y verificación.
 - `api/`: formulario PHP y PHPMailer; configuración privada fuera de la raíz web.
+- `aviso-legal.html`, `privacidad.html`, `cookies.html`: documentos generados por `scripts/legal-pages.mjs` y regenerados por el build.
+- `favicon.ico`, `assets/favicon-jc.svg` y PNG: identidad de navegador; generación con `node scripts/favicon.mjs`.
+- `robots.txt`, `llms.txt` y `dist/sitemap.xml`: descubrimiento público.
 - `dist/`: salida de publicación, regenerable y no versionada.
 - `reports/`: pruebas/capturas locales, regenerables y no versionadas.
 
@@ -33,6 +36,6 @@ Sustituir el ejemplo por un dominio real verificado. Publicar el contenido de `d
 
 Configurar HTTPS y tipos MIME para `.avif`, `.webp`, `.mp4` y `.vtt`. Permitir rangos HTTP para buscar dentro de los vídeos. Verificar caché y actualizar HTML/CSS/JS durante despliegues para no mostrar versiones mezcladas.
 
-La versión presente está desplegada en `https://joseantoniocuenca.es`, continúa bloqueada para indexación y dispone de formulario SMTP operativo. Los legales completos siguen pendientes. Validar en teléfono real y completar datos y permisos antes de autorizar indexación. No introducir analítica sin ajustar privacidad y seguridad.
+La versión está desplegada e indexable en `https://joseantoniocuenca.es`, con autorización del titular, formulario SMTP y documentos legales. No introducir analítica, cookies ni nuevos proveedores sin revisar las políticas y el consentimiento. Cambiar el contenido legal en `scripts/legal-pages.mjs`, no solo en el HTML generado.
 
 `node scripts/verify-deployment.mjs` compara todos los archivos públicos con `dist/`, verifica rangos MP4, MIME de subtítulos y que el backup no sea público. Para ejecutar pruebas contra el dominio: configurar `TEST_URL=https://joseantoniocuenca.es` antes de `npm test` o `node scripts/review-mobile.mjs`.

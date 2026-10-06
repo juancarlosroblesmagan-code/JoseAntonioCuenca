@@ -25,7 +25,7 @@ El instalador temporal se ha eliminado después de la migración. La aplicación
 - Estado antiabuso privado en `contact-rate/limits.json`, IP seudonimizada mediante HMAC y sin guardar consultas en disco. No utiliza cookies ni almacenamiento local.
 - Respuesta de éxito solo tras aceptación SMTP. Nunca devuelve diagnósticos SMTP ni contraseñas al visitante.
 - Las librerías no son accesibles directamente por HTTP.
-- Aviso de tratamiento y autorización para responder visibles. La política legal completa sigue pendiente de datos del titular/plazos; no se inventan.
+- Aviso de tratamiento y autorización para responder visibles, con enlace a la política completa. Titular confirmado: José Antonio Cuenca Gómez. Plazo elegido: máximo tres meses desde la recepción de consultas. El titular debe eliminar también los correos/copias correspondientes; la aplicación no accede al buzón para borrarlos.
 
 ## Pruebas
 

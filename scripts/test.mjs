@@ -63,9 +63,7 @@ for (const width of widths) {
       assert.equal(await page.locator('#video-player').getAttribute('src'), null);
     }
   }
-  await page.locator('[data-legal="cookies"]').click();
-  assert.equal(await page.locator('#legal-dialog').evaluate(el => el.open), true);
-  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('.footer-bottom a[href="/cookies.html"]').count(), 1);
   const accessibility = await new AxeBuilder({ page }).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']).analyze();
   const violations = accessibility.violations.map(v => ({ id: v.id, impact: v.impact, description: v.description, nodes: v.nodes.map(n => ({ target: n.target, summary: n.failureSummary })) }));
   results.push({ width, ...data, errors, violations });
@@ -79,7 +77,7 @@ for (const width of widths) {
 }
 const noJs = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
 const noJsPage = await noJs.newPage();
-await noJsPage.goto('http://localhost:4173');
+await noJsPage.goto(process.env.TEST_URL || 'http://localhost:4173');
 assert.equal(await noJsPage.locator('h1').isVisible(), true);
 assert.equal(await noJsPage.locator('#brands-title').isVisible(), true);
 assert.equal(await noJsPage.locator('.video-cover[href$=".mp4"]').count(), 3);

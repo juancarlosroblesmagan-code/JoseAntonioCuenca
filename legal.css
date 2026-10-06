@@ -1,0 +1,22 @@
+.legal-page { background: var(--paper); color: var(--ink); }
+.legal-header { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding-block: 30px; border-bottom: 1px solid var(--line); }
+.legal-brand { font-family: var(--sans); font-size: clamp(19px, 3vw, 27px); letter-spacing: -.055em; font-weight: 600; }
+.legal-brand span { color: var(--accent); }
+.legal-back { font-size: 12px; min-height: 44px; display: inline-flex; align-items: center; gap: 12px; }
+.legal-main { max-width: 980px; padding-block: 70px; }
+.legal-main h1 { font-family: var(--serif); font-size: clamp(42px, 7vw, 76px); font-weight: 400; line-height: 1.1; margin-top: 20px; }
+.legal-intro { font-size: 17px; max-width: 650px; margin-top: 22px; color: var(--muted); }
+.legal-updated { font-size: 12px; color: var(--muted); margin-top: 18px; }
+.legal-nav { display: flex; flex-wrap: wrap; gap: 12px 25px; margin-top: 35px; padding-block: 16px; border-block: 1px solid var(--line); }
+.legal-nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; }
+.legal-nav a[aria-current=page] { font-weight: 700; text-decoration: underline; text-underline-offset: 6px; }
+.legal-content { font-size: 15px; line-height: 1.85; max-width: 780px; }
+.legal-content section { margin-top: 40px; }
+.legal-content h2 { font-family: var(--sans); font-size: 21px; font-weight: 600; line-height: 1.4; letter-spacing: -.02em; margin-bottom: 16px; }
+.legal-content p + p { margin-top: 15px; }
+.legal-content ul { padding-left: 22px; margin-block: 18px; }
+.legal-content li + li { margin-top: 12px; }
+.legal-content a, .legal-footer a { text-decoration: underline; text-underline-offset: 3px; }
+.legal-content a { overflow-wrap: anywhere; }
+.legal-footer { border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px 30px; padding-block: 25px; color: var(--muted); font-size: 10px; }
+@media(max-width:599px) { .legal-header { padding-block: 20px; flex-wrap: wrap; gap: 8px; } .legal-main { padding-block: 42px; } .legal-intro { font-size: 15px; } .legal-content { font-size: 14px; } .legal-content h2 { font-size: 19px; } .legal-footer { line-height: 1.8; } }

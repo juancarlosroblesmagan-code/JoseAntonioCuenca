@@ -19,7 +19,7 @@ Diseño contemporáneo con composición asimétrica, tipografía local Manrope y
 
 Un único grafo Schema: Person, WebSite, WebPage/FAQPage, Service y marcas. Preguntas y respuestas derivadas del contenido visible. `SITE_URL` permite URLs absolutas cuando se confirme el dominio. No se inventan fechas de publicación de vídeos ni dominio.
 
-Se conserva `noindex, nofollow` hasta autorizar el lanzamiento. No se han creado páginas futuras ni rutas vacías.
+La HOME pasa a `index, follow` por autorización expresa del titular. Las tres páginas legales completas mantienen `noindex, follow`. No se han creado páginas futuras ni rutas vacías. Sitemap y robots permiten descubrimiento; Schema incorpora nombre completo y contacto verificados. `llms.txt` aporta información factual sin prometer uso por asistentes.
 
 ## Validación registrada
 
@@ -28,19 +28,19 @@ Se conserva `noindex, nofollow` hasta autorizar el lanzamiento. No se han creado
 - Objetivos táctiles principales de 44 px y CTA del hero visible en los móviles verticales probados.
 - Movimiento/reveals y modo de movimiento reducido comprobados.
 - Hashes originales, dimensiones/duración, audio AAC y rangos HTTP 206 verificados.
-- Última medición Lighthouse registrada: rendimiento 98 móvil / 100 escritorio; accesibilidad y buenas prácticas 100 / 100; LCP 2,3 s / 0,5 s; CLS 0; TBT 0 ms. SEO 63 por el bloqueo deliberado de indexación. Estas cifras son mediciones de laboratorio, no garantías ni resultados nuevos de cada build.
+- Medición Lighthouse del dominio público tras lanzamiento: rendimiento 94 móvil / 100 escritorio; accesibilidad, buenas prácticas y SEO 100 / 100; LCP 2,0 s / 0,6 s; CLS 0; TBT 160 ms / 0 ms. Son mediciones de laboratorio, no garantías ni resultados constantes.
 
 Las pruebas automatizadas y Chrome emulado no sustituyen una revisión manual WCAG ni pruebas en Safari/iOS y teléfono físico.
 
-## Pendientes antes de publicar
+## Operación y pendientes de revisión
 
 1. Aprobar la vista en un móvil real y los audiovisuales.
 2. Confirmar recepción del mensaje técnico en el email verificado `info@joseantoniocuenca.es`. El formulario SMTP ya funciona; teléfono opcional aún no facilitado.
-3. Validar el despliegue no indexable en el dominio confirmado `https://joseantoniocuenca.es`.
-4. Completar aviso legal, privacidad y cookies según el uso real.
-5. Autorizar medios de fabricantes y ferias, fechas y música.
+3. Validar periódicamente el despliegue indexable en `https://joseantoniocuenca.es`.
+4. Documentos legales publicados con datos y plazo confirmados; recomendable revisión profesional y cumplimiento real del borrado de consultas en tres meses.
+5. Conservar las autorizaciones de medios de fabricantes/ferias y revisar las fechas antes de cualquier actualización del contenido.
 6. Comprobar HTTPS, tipos MIME, rangos MP4 y enlaces en el servidor.
-7. Activar indexación únicamente tras aprobación explícita del lanzamiento.
+7. Registrar el sitio y su sitemap en Search Console/Bing si el titular facilita acceso; no se han creado cuentas ni reclamado propiedades.
 
 ## Limpieza y repositorio
 
@@ -48,4 +48,4 @@ Se retiran la implementación React anterior del árbol vigente del repositorio,
 
 Subir código a GitHub no equivale a desplegar ni publicar en el servidor.
 
-El 6 de octubre de 2026, a petición explícita del cliente, se ha sustituido también la web pública en Plesk. El despliegue sigue bloqueado para indexación; detalles en [DESPLIEGUE.md](DESPLIEGUE.md).
+El 6 de octubre de 2026, a petición explícita del cliente, se ha sustituido la web pública en Plesk y autorizado su indexación. Detalles en [DESPLIEGUE.md](DESPLIEGUE.md) y [SEGURIDAD-LEGALES-SEO.md](SEGURIDAD-LEGALES-SEO.md).

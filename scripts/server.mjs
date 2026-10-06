@@ -10,6 +10,7 @@ http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, 'http://localhost');
     const requested = decodeURIComponent(url.pathname);
+    if (requested.split('/').some(part => part.startsWith('.'))) { res.writeHead(403); res.end('Forbidden'); return; }
     const file = path.resolve(root, `.${requested === '/' ? '/index.html' : requested}`);
     if (!file.startsWith(root + path.sep)) { res.writeHead(403); res.end('Forbidden'); return; }
     if (path.extname(file) === '.php' || requested.startsWith('/api/')) { res.writeHead(503, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ success: false, message: 'El servidor Node local no ejecuta PHP. Prueba el envío en Plesk.' })); return; }
