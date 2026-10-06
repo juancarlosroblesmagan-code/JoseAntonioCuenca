@@ -1,0 +1,70 @@
+{
+  "importedOn": "2026-10-06",
+  "videos": [
+    {
+      "id": "feria-habitat",
+      "title": "Feria Hábitat. Producto en contexto.",
+      "description": "Recorrido por espacios expositivos de Karibian, Koala Beds y Torresol en Feria Hábitat. Ambientes de descanso, colchones y sofás presentados en un entorno profesional.",
+      "src": "/assets/videos/joseantoniocuenca-video-feria-habitat.mp4",
+      "poster": "/assets/images/joseantoniocuenca-video-feria-habitat-poster.webp",
+      "originalName": "VIDEO-2026-10-05-14-43-57.mp4",
+      "originalRenamed": "joseantoniocuenca-video-feria-habitat-original.mp4",
+      "sourceHash": "e550621a9bd591ab13279e6cf925c07d13c5c4df995092ba6864f281bf65b157",
+      "width": 496,
+      "height": 480,
+      "duration": 66.9,
+      "hasAudio": true,
+      "originalBytes": 8046549,
+      "webBytes": 3593387,
+      "captions": "/assets/videos/joseantoniocuenca-video-feria-habitat.es.vtt",
+      "originalHasAudio": false,
+      "soundtrack": "Base ambiental sintetizada para este proyecto, sin voces ni grabaciones comerciales. Volumen de referencia -24 LUFS y fundidos de entrada/salida."
+    },
+    {
+      "id": "ferias-diseno",
+      "title": "Una mirada a las ferias de diseño.",
+      "description": "Montaje de espacios expositivos, mobiliario y materiales, con imágenes del Salone del Mobile. Una mirada visual al producto dentro de las ferias del sector.",
+      "src": "/assets/videos/joseantoniocuenca-video-ferias-diseno.mp4",
+      "poster": "/assets/images/joseantoniocuenca-video-ferias-diseno-poster.webp",
+      "originalName": "VIDEO-2026-10-05-14-43-58.mp4",
+      "originalRenamed": "joseantoniocuenca-video-ferias-diseno-original.mp4",
+      "sourceHash": "f872689fb00d7da23ceaa27a995cacab5972530798385b4f4ba9b82149f20949",
+      "width": 496,
+      "height": 480,
+      "duration": 59.9,
+      "hasAudio": true,
+      "originalBytes": 7737991,
+      "webBytes": 4856458,
+      "captions": "/assets/videos/joseantoniocuenca-video-ferias-diseno.es.vtt",
+      "originalHasAudio": true,
+      "soundtrack": "Base ambiental sintetizada para este proyecto, sin voces ni grabaciones comerciales. Volumen de referencia -24 LUFS y fundidos de entrada/salida."
+    },
+    {
+      "id": "feria-torresol",
+      "title": "Torresol. Diseño y confort en exposición.",
+      "description": "Presentación audiovisual de Torresol con sofás, sillones y ambientes de su espacio expositivo. La marca y los detalles del producto, en un recorrido de 33 segundos.",
+      "src": "/assets/videos/joseantoniocuenca-video-feria-torresol.mp4",
+      "poster": "/assets/images/joseantoniocuenca-video-feria-torresol-poster.webp",
+      "originalName": "VIDEO-2026-10-05-14-43-58 - menos tiempo.mp4",
+      "originalRenamed": "joseantoniocuenca-video-feria-torresol-original.mp4",
+      "sourceHash": "878da94d733bf98bafcf25e226ed2c3eae1f98936b70c01c364ea24ccd3cad8a",
+      "width": 464,
+      "height": 352,
+      "duration": 33.333333,
+      "hasAudio": true,
+      "originalBytes": 2877333,
+      "webBytes": 1280404,
+      "captions": "/assets/videos/joseantoniocuenca-video-feria-torresol.es.vtt",
+      "originalHasAudio": true,
+      "soundtrack": "Base ambiental sintetizada para este proyecto, sin voces ni grabaciones comerciales. Volumen de referencia -24 LUFS y fundidos de entrada/salida."
+    }
+  ],
+  "notes": "Tres archivos diferentes verificados mediante SHA256. Imagen sin recortar ni acelerar. Audio de las versiones web unificado con una base ambiental sintetizada, sin voces. Audio original conservado en los originales de Descargas. Confirmar fechas y permisos de las ferias antes de publicar.",
+  "soundtrack": {
+    "source": "Síntesis original reproducible en scripts/ambient-sound.mjs",
+    "preview": "/assets/audio/joseantoniocuenca-ambiental-muestra.mp3",
+    "vocals": false,
+    "originalFiles": "Sin modificar en Descargas",
+    "approvedDirection": "Ambiental suave, elegida por el cliente"
+  }
+}

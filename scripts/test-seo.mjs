@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import { renderSEO } from './seo.mjs';
+
+const html = await (await fetch('http://localhost:4173')).text();
+const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+assert.equal(scripts.length, 1);
+const graph = JSON.parse(scripts[0][1])['@graph'];
+assert.equal(new Set(graph.map(entity => entity['@id'])).size, graph.length);
+const home = graph.find(entity => entity['@id'] === '/#home');
+assert.ok(home['@type'].includes('FAQPage'));
+assert.equal(home.mainEntity.length, 5);
+assert.equal(home.mentions.length, 5);
+assert.equal(graph.find(entity => entity['@type'] === 'Service').provider['@id'], '/#jose-antonio');
+assert.match(html, /noindex, nofollow/);
+const preview = renderSEO(await fs.readFile('index.html', 'utf8'), 'https://verified-example.invalid/');
+assert.match(preview, /rel="canonical" href="https:\/\/verified-example.invalid\/"/);
+assert.match(preview, /content="https:\/\/verified-example.invalid\/assets\/images\/social.jpg"/);
+assert.ok(!preview.includes('"@id":"/#'));
+console.log('SEO validado: un único grafo, FAQ visible, 5 marcas, Service/Person y conversión a dominio absoluto.');
