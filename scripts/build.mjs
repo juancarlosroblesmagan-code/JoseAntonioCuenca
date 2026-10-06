@@ -19,6 +19,7 @@ for (const folder of ['images', 'logos', 'fonts']) {
 }
 await fs.copyFile('assets/favicon.svg', `${out}/assets/favicon.svg`);
 await fs.copyFile('.htaccess', `${out}/.htaccess`);
+await fs.cp('api', `${out}/api`, { recursive: true });
 const videos = JSON.parse(await fs.readFile('assets/videos/manifest.json', 'utf8'));
 await fs.mkdir(`${out}/assets/videos`, { recursive: true });
 for (const video of videos.videos) {

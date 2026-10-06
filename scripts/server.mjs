@@ -12,6 +12,7 @@ http.createServer(async (req, res) => {
     const requested = decodeURIComponent(url.pathname);
     const file = path.resolve(root, `.${requested === '/' ? '/index.html' : requested}`);
     if (!file.startsWith(root + path.sep)) { res.writeHead(403); res.end('Forbidden'); return; }
+    if (path.extname(file) === '.php' || requested.startsWith('/api/')) { res.writeHead(503, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ success: false, message: 'El servidor Node local no ejecuta PHP. Prueba el envío en Plesk.' })); return; }
     if (path.extname(file) === '.mp4') {
       const { size } = await fs.stat(file);
       const headers = { 'Content-Type': 'video/mp4', 'Accept-Ranges': 'bytes', 'X-Content-Type-Options': 'nosniff' };

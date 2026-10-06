@@ -10,6 +10,7 @@ const results = [];
 for (const viewport of profiles) {
   const context = await browser.newContext({ viewport, deviceScaleFactor: 2, isMobile: true, hasTouch: true, reducedMotion: 'reduce' });
   const page = await context.newPage();
+  if (!process.env.TEST_URL) await page.route('**/api/contact.php', route => route.fulfill({ json: { token: 'mock-token-local-no-email' } }));
   const errors = [], mp4Requests = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });

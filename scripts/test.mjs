@@ -10,6 +10,7 @@ const results = [];
 for (const width of widths) {
   const context = await browser.newContext({ viewport: { width, height: width < 600 ? 844 : 1000 }, reducedMotion: 'reduce' });
   const page = await context.newPage();
+  if (!process.env.TEST_URL) await page.route('**/api/contact.php', route => route.fulfill({ json: { token: 'mock-token-local-no-email' } }));
   const errors = [];
   const videoRequests = [];
   page.on('request', request => { if (request.url().endsWith('.mp4')) videoRequests.push(request.url()); });

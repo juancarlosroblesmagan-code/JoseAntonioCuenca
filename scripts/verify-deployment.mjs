@@ -11,6 +11,7 @@ async function verify(directory) {
     const file = path.join(directory, entry.name);
     if (entry.isDirectory()) { await verify(file); continue; }
     const relative = path.relative('dist', file).split(path.sep).join('/');
+    if (relative.startsWith('api/')) continue; // PHP is executed, never downloaded as source.
     if (relative === '.htaccess') continue;
     const url = new URL(relative, `${base}/`);
     const response = await fetch(url, { cache: 'no-store' });

@@ -77,6 +77,22 @@ h2 em { font-family: var(--serif); font-size: 1.08em; letter-spacing: -.04em; }
 .footer-credits { margin-top: 20px; text-align: center; color: var(--muted); font-size: 10px; line-height: 1.8; letter-spacing: .015em; }
 .footer-credits a { white-space: nowrap; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color .25s, text-decoration-color .25s; }
 .footer-credits a:hover { color: var(--ink); text-decoration-color: var(--line); }
+#contact-dialog { width: min(620px, calc(100% - 32px)); max-height: calc(100dvh - 32px); overflow-y: auto; }
+#contact-dialog > p { font-size: 13px; }
+#contact-dialog a { text-decoration: underline; text-underline-offset: 3px; }
+#contact-form { margin-top: 22px; }
+#contact-form label:not(.contact-consent) { display: block; font-size: 12px; font-weight: 600; margin-bottom: 15px; }
+#contact-form input:not([type=checkbox]), #contact-form textarea { display: block; width: 100%; min-height: 44px; margin-top: 6px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); color: var(--ink); font: inherit; font-size: 16px; }
+#contact-form textarea { resize: vertical; }
+.contact-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.field-optional { font-weight: 400; color: var(--muted); }
+.contact-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+#contact-form .contact-privacy { font-size: 11px; line-height: 1.6; color: var(--muted); }
+.contact-consent { display: flex; gap: 10px; align-items: flex-start; padding-block: 12px; min-height: 44px; font-size: 12px; line-height: 1.6; cursor: pointer; }
+.contact-consent input { margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--ink); }
+#contact-feedback { font-size: 13px; line-height: 1.6; }
+#contact-form button:disabled { opacity: .6; cursor: wait; }
+@media (max-width: 599px) { .contact-fields { grid-template-columns: 1fr; gap: 0; } #contact-dialog { padding: 32px 22px; } }
 .image-frame img { transform: translateY(var(--image-depth, 0px)) scale(var(--image-scale, 1.035)); }
 .image-frame:hover img { --image-scale: 1.075; }
 .motion-ready .reveal { transform: translateY(42px); transition: opacity .8s ease, transform 1s cubic-bezier(.16,1,.3,1); transition-delay: var(--reveal-delay, 0ms); }

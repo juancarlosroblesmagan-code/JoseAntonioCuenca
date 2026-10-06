@@ -6,3 +6,5 @@ assets/audio/*.wav
 .env
 .env.*
 !.env.example
+contact-config.php
+contact-rate/

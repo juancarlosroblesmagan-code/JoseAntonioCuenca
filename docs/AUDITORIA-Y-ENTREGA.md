@@ -35,7 +35,7 @@ Las pruebas automatizadas y Chrome emulado no sustituyen una revisión manual WC
 ## Pendientes antes de publicar
 
 1. Aprobar la vista en un móvil real y los audiovisuales.
-2. Facilitar teléfono/email reales y definir el funcionamiento del contacto.
+2. Confirmar recepción del mensaje técnico en el email verificado `info@joseantoniocuenca.es`. El formulario SMTP ya funciona; teléfono opcional aún no facilitado.
 3. Validar el despliegue no indexable en el dominio confirmado `https://joseantoniocuenca.es`.
 4. Completar aviso legal, privacidad y cookies según el uso real.
 5. Autorizar medios de fabricantes y ferias, fechas y música.

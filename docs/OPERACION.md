@@ -7,6 +7,7 @@
 - `app.js`: navegación, movimiento y reproducción.
 - `assets/`: medios finales, fuentes, licencias y procedencia.
 - `scripts/`: desarrollo, build, generación y verificación.
+- `api/`: formulario PHP y PHPMailer; configuración privada fuera de la raíz web.
 - `dist/`: salida de publicación, regenerable y no versionada.
 - `reports/`: pruebas/capturas locales, regenerables y no versionadas.
 
@@ -28,10 +29,10 @@ $env:SITE_URL='https://DOMINIO-CONFIRMADO/'
 npm run build
 ```
 
-Sustituir el ejemplo por un dominio real verificado. Publicar el contenido de `dist/` en la raíz del sitio. No requiere servidor Node ni reglas SPA. No reutilizar las reglas de redirección de la aplicación React anterior sin revisarlas.
+Sustituir el ejemplo por un dominio real verificado. Publicar el contenido de `dist/` en la raíz del sitio. No requiere servidor Node ni reglas SPA. El formulario sí requiere PHP 8.1+, OpenSSL y configuración SMTP privada; ver [CONTACTO.md](CONTACTO.md). No reutilizar las reglas de redirección de la aplicación React anterior sin revisarlas.
 
 Configurar HTTPS y tipos MIME para `.avif`, `.webp`, `.mp4` y `.vtt`. Permitir rangos HTTP para buscar dentro de los vídeos. Verificar caché y actualizar HTML/CSS/JS durante despliegues para no mostrar versiones mezcladas.
 
-La versión presente está desplegada en `https://joseantoniocuenca.es`, continúa bloqueada para indexación y muestra avisos de contacto/legal pendientes. Validar en teléfono real y completar datos y permisos antes de autorizar indexación. No introducir analítica ni formularios sin ajustar privacidad y seguridad.
+La versión presente está desplegada en `https://joseantoniocuenca.es`, continúa bloqueada para indexación y dispone de formulario SMTP operativo. Los legales completos siguen pendientes. Validar en teléfono real y completar datos y permisos antes de autorizar indexación. No introducir analítica sin ajustar privacidad y seguridad.
 
 `node scripts/verify-deployment.mjs` compara todos los archivos públicos con `dist/`, verifica rangos MP4, MIME de subtítulos y que el backup no sea público. Para ejecutar pruebas contra el dominio: configurar `TEST_URL=https://joseantoniocuenca.es` antes de `npm test` o `node scripts/review-mobile.mjs`.

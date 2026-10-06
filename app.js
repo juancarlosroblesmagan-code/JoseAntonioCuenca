@@ -114,14 +114,54 @@ videoDialog.addEventListener('close', () => {
   videoPlayer.load();
 });
 
-document.querySelector('[data-open-contact]').addEventListener('click', () => document.querySelector('#contact-dialog').showModal());
+const contactForm = document.querySelector('#contact-form');
+const contactFeedback = document.querySelector('#contact-feedback');
+let contactToken = '';
+let contactTokenRequest;
+document.querySelector('[data-open-contact]').addEventListener('click', () => {
+  document.querySelector('#contact-dialog').showModal();
+  contactToken = '';
+  contactFeedback.textContent = '';
+  contactTokenRequest = fetch('/api/contact.php', { cache: 'no-store' }).then(async response => {
+    const data = await response.json();
+    if (!response.ok || !data.token) throw new Error('unavailable');
+    contactToken = data.token;
+  }).catch(() => { contactFeedback.textContent = 'El formulario no está disponible en este momento. Escribe a info@joseantoniocuenca.es.'; });
+});
+contactForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  if (!contactForm.reportValidity() || contactForm.getAttribute('aria-busy') === 'true') return;
+  const button = contactForm.querySelector('button[type="submit"]');
+  button.disabled = true;
+  contactForm.setAttribute('aria-busy', 'true');
+  contactFeedback.textContent = 'Enviando tu consulta…';
+  try {
+    await contactTokenRequest;
+    if (!contactToken) throw new Error('El formulario no está disponible. Escribe a info@joseantoniocuenca.es.');
+    const fields = new FormData(contactForm);
+    const response = await fetch('/api/contact.php', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: fields.get('name'), email: fields.get('email'), company: fields.get('company'), message: fields.get('message'), website: fields.get('website'), consent: fields.has('consent'), token: contactToken }),
+      signal: AbortSignal.timeout(45000)
+    });
+    const data = await response.json();
+    if (!response.ok || data.success !== true) throw new Error(data.message || 'No se ha podido enviar. Inténtalo más tarde.');
+    contactFeedback.textContent = data.message;
+    contactForm.reset();
+  } catch (error) {
+    contactFeedback.textContent = error.name === 'TimeoutError' ? 'No se pudo confirmar el envío. Escribe a info@joseantoniocuenca.es antes de reenviar.' : error.message === 'Failed to fetch' ? 'No hay conexión con el servidor. Inténtalo más tarde o escribe por email.' : error.message;
+  } finally {
+    button.disabled = false;
+    contactForm.removeAttribute('aria-busy');
+  }
+});
 document.querySelectorAll('dialog').forEach(dialog => {
   dialog.querySelectorAll('.dialog-close, .dialog-dismiss').forEach(button => button.addEventListener('click', () => dialog.close()));
   dialog.addEventListener('click', e => { if (e.target === dialog) { const r = dialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close(); } });
 });
 const legal = {
-  legal: ['Información legal', 'Propuesta de diseño no publicada. El aviso legal definitivo requiere los datos fiscales y de identificación del titular, que todavía no han sido facilitados.'],
-  privacidad: ['Privacidad', 'Esta propuesta no contiene formularios de recogida de datos, analítica ni seguimiento. La política definitiva se redactará cuando estén confirmados el titular, los canales de contacto y el tratamiento de datos.'],
+   legal: ['Información legal', 'Web de José Antonio Cuenca. Contacto: info@joseantoniocuenca.es. Pendiente de completar los datos fiscales y de identificación del titular para el aviso legal definitivo.'],
+   privacidad: ['Privacidad', 'El formulario recoge nombre, email, empresa opcional y consulta para que José Antonio Cuenca atienda tu solicitud, con tu autorización. Los datos se envían por email a través de IONOS. No se usan para campañas publicitarias desde este formulario. Para solicitar acceso, rectificación, supresión u otros derechos, escribe a info@joseantoniocuenca.es. La política completa, incluidos plazos de conservación y datos de identificación del responsable, sigue pendiente de confirmación.'],
   cookies: ['Cookies', 'Esta propuesta no instala cookies ni utiliza almacenamiento local, analítica o reproductores externos. Las fuentes y las imágenes se sirven localmente. No es necesario un banner de consentimiento en esta fase.']
 };
 document.querySelectorAll('[data-legal]').forEach(button => button.addEventListener('click', () => {
