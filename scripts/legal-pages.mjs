@@ -40,7 +40,7 @@ export async function generateLegalPages(site = process.env.SITE_URL || 'https:/
 <body class="legal-page"><a class="skip-link" href="#contenido">Saltar al contenido</a><header class="legal-header wrap"><a class="legal-brand" href="/">José Antonio Cuenca<span aria-hidden="true">.</span></a><a class="legal-back" href="/">Volver a la web <span aria-hidden="true">↗</span></a></header>
 <main class="legal-main wrap" id="contenido"><p class="eyebrow">INFORMACIÓN Y TRANSPARENCIA</p><h1>${page.title}</h1><p class="legal-intro">${page.summary}</p><p class="legal-updated">Última actualización: 6 de octubre de 2026.</p><nav class="legal-nav" aria-label="Documentos legales"><a href="/aviso-legal.html" ${page.file === 'aviso-legal.html' ? 'aria-current="page"' : ''}>Aviso legal</a><a href="/privacidad.html" ${page.file === 'privacidad.html' ? 'aria-current="page"' : ''}>Privacidad</a><a href="/cookies.html" ${page.file === 'cookies.html' ? 'aria-current="page"' : ''}>Cookies</a></nav><article class="legal-content">${page.sections.map(([heading, text]) => `<section><h2>${heading}</h2>${text}</section>`).join('')}</article></main>
 <footer class="legal-footer wrap"><span>© 2026 José Antonio Cuenca Gómez.</span><span>Diseño: <a href="https://roblesmagan.com/">Juan Carlos Robles Magán</a> y <a href="https://grupocomunicacion360.com/">Grupo Comunicación 360º</a></span></footer></body></html>`;
-    await fs.writeFile(page.file, html.replace('noindex, nofollow', 'noindex, follow'));
+    await fs.writeFile(page.file, html.replace('noindex, nofollow', 'noindex, follow').replace('favicon-jc.svg', 'favicon-descanso.svg'));
   }
 }
 if (process.argv[1]?.endsWith('legal-pages.mjs')) await generateLegalPages();

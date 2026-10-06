@@ -44,7 +44,7 @@ if (base.startsWith('https:')) {
   assert.equal(person.telephone, '+34615559577');
   assert.equal(person.name, 'José Antonio Cuenca Gómez');
   assert.equal(person.email, 'info@joseantoniocuenca.es');
-  for (const path of ['/robots.txt', '/sitemap.xml', '/llms.txt', '/favicon.ico', '/assets/favicon-jc.svg', '/assets/apple-touch-icon.png']) assert.equal((await fetch(base + path)).status, 200, path);
+  for (const path of ['/robots.txt', '/sitemap.xml', '/llms.txt', '/favicon.ico', '/assets/favicon-descanso.svg', '/assets/apple-touch-icon.png']) assert.equal((await fetch(base + path)).status, 200, path);
   for (const path of ['/.env', '/.user.ini', '/.git/config', '/contact-config.php']) assert.ok([403, 404].includes((await fetch(base + path)).status), path);
 }
 await browser.close();

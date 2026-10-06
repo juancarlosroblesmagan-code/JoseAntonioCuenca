@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import sharp from 'sharp';
 
-const source = 'assets/favicon-jc.svg';
+const source = 'assets/favicon-descanso.svg';
 await fs.copyFile(source, 'assets/favicon.svg');
 const entries = [];
 for (const size of [16, 32, 48]) entries.push({ size, bytes: await sharp(source).resize(size, size).png().toBuffer() });
@@ -17,4 +17,4 @@ entries.forEach(({ size, bytes }, index) => {
 });
 await fs.writeFile('favicon.ico', Buffer.concat([header, ...entries.map(e => e.bytes)]));
 for (const [name, size] of [['favicon-32.png', 32], ['apple-touch-icon.png', 180], ['icon-192.png', 192]]) await sharp(source).resize(size, size).png().toFile(`assets/${name}`);
-console.log('Favicon JC: SVG, ICO 16/32/48 y PNG 32/180/192 preparados.');
+console.log('Icono de descanso: SVG, ICO 16/32/48 y PNG 32/180/192 preparados.');

@@ -40,7 +40,9 @@ La indexación depende del rastreador y puede tardar. Schema y llms.txt no garan
 
 ## Identidad de navegador
 
-Monograma JC propio en grafito, marfil y bronce: SVG vectorial, ICO 16/32/48 y PNG 32/180/192. Apple touch icon incluido. La URL principal SVG es nueva para reducir problemas de caché; `/favicon.ico` cubre detección convencional.
+Icono de cama propio en grafito, marfil y bronce, elegido para representar el descanso sin iniciales: SVG vectorial, ICO 16/32/48 y PNG 32/180/192. Apple touch icon incluido. La URL principal `/assets/favicon-descanso.svg` es nueva para reducir problemas de caché; `/favicon.ico` cubre detección convencional. Sustituye al monograma rechazado por el cliente.
+
+Estado de esta última modificación: preparada localmente y en GitHub; la subida a Plesk queda pendiente de renovar la sesión caducada. No se ha sustituido aún el favicon público.
 
 ## Verificación reproducible
 

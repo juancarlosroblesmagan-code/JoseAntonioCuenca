@@ -7,6 +7,7 @@ import { generateLegalPages } from './legal-pages.mjs';
 const out = 'dist';
 const site = process.env.SITE_URL || 'https://joseantoniocuenca.es';
 await fs.mkdir(out, { recursive: true });
+await fs.rm(`${out}/assets/favicon-jc.svg`, { force: true });
 await generateLegalPages();
 const html = renderSEO(await fs.readFile('index.html', 'utf8'), site);
 const sources = [...html.matchAll(/(?:src|href)="(\/[^"#]+)"/g)].map(m => m[1]);
@@ -22,7 +23,7 @@ for (const folder of ['images', 'logos', 'fonts']) {
   for (const file of await fs.readdir(`assets/${folder}`)) await fs.copyFile(`assets/${folder}/${file}`, `${out}/assets/${folder}/${file}`);
 }
 await fs.copyFile('assets/favicon.svg', `${out}/assets/favicon.svg`);
-for (const file of ['favicon-jc.svg', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png']) await fs.copyFile(`assets/${file}`, `${out}/assets/${file}`);
+for (const file of ['favicon-descanso.svg', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png']) await fs.copyFile(`assets/${file}`, `${out}/assets/${file}`);
 await fs.copyFile('.htaccess', `${out}/.htaccess`);
 await fs.copyFile('.user.ini', `${out}/.user.ini`);
 await fs.cp('api', `${out}/api`, { recursive: true });

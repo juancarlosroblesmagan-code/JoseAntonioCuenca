@@ -43,6 +43,6 @@ node scripts/check-image-quality.mjs
 
 **Publicada e indexable en https://joseantoniocuenca.es.** Teléfono confirmado: 615 55 95 77. Formulario operativo hacia `info@joseantoniocuenca.es`, con envío técnico aceptado por IONOS. Aviso legal, privacidad y cookies a nombre de José Antonio Cuenca Gómez. Conservación de consultas: máximo tres meses desde su recepción, también en el buzón; no hay borrado automático de emails.
 
-Favicon JC multiformato, HTTPS, CSP/HSTS, protección del formulario, Schema, sitemap, robots y descripción factual para asistentes de IA. Detalles: [despliegue](docs/DESPLIEGUE.md), [contacto](docs/CONTACTO.md) y [seguridad, legales y SEO](docs/SEGURIDAD-LEGALES-SEO.md). No se garantiza seguridad absoluta, cumplimiento jurídico sin revisión ni posicionamiento. Los originales del cliente siguen intactos.
+Favicon con icono de cama multiformato, HTTPS, CSP/HSTS, protección del formulario, Schema, sitemap, robots y descripción factual para asistentes de IA. Detalles: [despliegue](docs/DESPLIEGUE.md), [contacto](docs/CONTACTO.md) y [seguridad, legales y SEO](docs/SEGURIDAD-LEGALES-SEO.md). No se garantiza seguridad absoluta, cumplimiento jurídico sin revisión ni posicionamiento. Los originales del cliente siguen intactos.
 
 Diseño: [Juan Carlos Robles Magán](https://roblesmagan.com/) y [Grupo Comunicación 360º](https://grupocomunicacion360.com/).
